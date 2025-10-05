@@ -1,0 +1,279 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Brand Colors - Jobi Rooms Connect */
+    --jobi-purple: 282 26% 45%;
+    --jobi-purple-light: 282 26% 65%;
+    --jobi-purple-dark: 262 46% 35%;
+    --professional-gray: 0 1% 43%;
+    --pure-black: 0 0% 0%;
+    
+    /* Core Semantic Tokens */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 282 26% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 91%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 220 13% 96%;
+    --muted-foreground: 0 1% 43%;
+
+    --accent: 282 100% 97%;
+    --accent-foreground: 282 26% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Status Colors */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+    
+    --error: 0 84% 60%;
+    --error-foreground: 0 0% 100%;
+    
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    /* UI Elements */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 282 26% 45%;
+
+    --radius: 0.75rem;
+
+    /* Backgrounds */
+    --background-subtle: 220 13% 98%;
+    --background-purple-tint: 282 100% 97%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(282 26% 45%) 0%, hsl(262 46% 35%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(282 100% 97%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(220 13% 18%) 0%, hsl(220 13% 9%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+    --shadow-purple: 0 8px 24px rgba(156, 96, 167, 0.15);
+    
+    /* Transitions */
+    --transition-standard: 0.3s ease-in-out;
+    --transition-fast: 0.15s ease-out;
+    --transition-smooth: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 220 13% 9%;
+    --foreground: 0 0% 100%;
+
+    --card: 220 13% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 220 13% 12%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 282 26% 65%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 13% 18%;
+    --muted-foreground: 220 13% 65%;
+
+    --accent: 282 26% 25%;
+    --accent-foreground: 0 0% 100%;
+
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
+    --ring: 282 26% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito', 'Arial Rounded MT Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  /* Animation Keyframes */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(156, 96, 167, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(156, 96, 167, 0.6);
+    }
+  }
+  
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Animation Classes */
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-in-right {
+    animation: slide-in-right 0.6s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scale-in 0.4s ease-out forwards;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+  
+  /* Utility Classes */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--jobi-purple)) 0%, hsl(var(--jobi-purple-dark)) 100%);
+  }
+  
+  .gradient-subtle {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--accent)) 100%);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--jobi-purple)) 0%, hsl(var(--jobi-purple-dark)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .shadow-purple {
+    box-shadow: 0 8px 24px rgba(156, 96, 167, 0.15);
+  }
+  
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(156, 96, 167, 0.15);
+  }
+}
